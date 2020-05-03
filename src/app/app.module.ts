@@ -17,6 +17,7 @@ import { ProductModule } from './product/product.module';
 import { AuthInterceptor } from './authentication/interceptors/auth.interceptor';
 import { CacheInterceptor } from './shared/interceptors/cache.interceptor';
 import { LoggingInterceptor } from './shared/interceptors/log.interceptor';
+import { UserInterceptor } from './user/interceptors/user.interceptor';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LoggingInterceptor } from './shared/interceptors/log.interceptor';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: UserInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

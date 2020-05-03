@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { AuthenticationService } from '../../services/authentication.service';
 import { LoginVM } from '../../models/login.model';
 import { MessageDialogService } from 'src/app/shared/services/message-dialog.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   isSending = false;
 
   showNavbar = false;
+
+  public appName: string = environment.appName;
   private subscription: Subscription;
 
   constructor(
@@ -46,7 +49,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     this.router.navigate(['/dashboard']);
-    
+
     this.loginForm.markAllAsTouched();
     this.isSending = true;
 
