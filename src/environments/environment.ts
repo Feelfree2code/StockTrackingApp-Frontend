@@ -8,6 +8,7 @@ const apiVer = 'v2';
 const apiUrl =  `https://localhost:5001/api/${apiVer}`;
 
 export const environment = {
+  appName: 'STA',
   production: false,
   api: GenerateRoutes(apiUrl)
 };

@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication/services/authentication.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +14,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   showNavbar = false;
   private subscription: Subscription;
   public userName = '';
+  public appName: string = environment.appName;
 
   constructor(private authService: AuthenticationService,
               private router: Router) {

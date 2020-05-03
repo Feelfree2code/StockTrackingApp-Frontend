@@ -1,1 +1,19 @@
-<p>grid-list works!</p>
+
+<table class="table" *ngIf="isLoaded">
+  <thead>
+    <tr>
+      <th scope="col" *ngFor="let column of data.columns" [hidden]="column.isHidden">
+        {{ column.displayName }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rowData of data.dataset" (click)="openDetail()">
+      
+      <ng-container *ngFor="let item of rowData.values">
+        <td>{{ item }}</td>
+      </ng-container>
+
+    </tr>
+  </tbody>
+</table>
